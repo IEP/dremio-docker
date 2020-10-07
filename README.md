@@ -7,5 +7,5 @@
 
 ## Settings Screenshot
 
-[general-setting](doc/1.png)
-[advanced-options-setting](doc/2.png)
+![general-setting](doc/1.png)
+![advanced-options-setting](doc/2.png)
