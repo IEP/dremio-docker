@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+    storage:
+        image: minio/minio:latest
+        ports:
+            - "9000:9000"
+        environment:
+            MINIO_ACCESS_KEY: GPRATAMA/ACCESS/KEY
+            MINIO_SECRET_KEY: GPRATAMA/SECRET/KEY/THISISVERYSECRETINDEED
+        hostname: exploration
+        volumes:
+            - ./data:/data
+        command: ["server", "/data"]
+    dremio:
+        image: dremio/dremio-oss:latest
+        ports:
+            - "9047:9047"
+            - "31010:31010"
+            - "45678:45678"
+        hostname: exploration
+        volumes:
+            - dremio_data:/opt/dremio/data
+            - dremio_data:/var/lib/dremio
+        deploy:
+            resources:
+                limits:
+                    memory: 2G
+            
+volumes:
+    dremio_data:
