@@ -5,6 +5,7 @@ services:
         ports:
             - "9000:9000"
         environment:
+            # Change the Acces Key and the Secret Key
             MINIO_ACCESS_KEY: GPRATAMA/ACCESS/KEY
             MINIO_SECRET_KEY: GPRATAMA/SECRET/KEY/THISISVERYSECRETINDEED
         hostname: exploration
@@ -19,12 +20,13 @@ services:
             - "45678:45678"
         hostname: exploration
         volumes:
+            # Dremio data persistence
             - dremio_data:/opt/dremio/data
             - dremio_data:/var/lib/dremio
         deploy:
             resources:
                 limits:
                     memory: 2G
-            
+# Dremio data persistence           
 volumes:
     dremio_data:
