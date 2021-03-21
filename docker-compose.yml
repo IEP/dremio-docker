@@ -30,3 +30,7 @@ services:
 # Dremio data persistence           
 volumes:
     dremio_data:
+        driver_opts:
+            type: none
+            device: ./dremio_data
+            o: bind
